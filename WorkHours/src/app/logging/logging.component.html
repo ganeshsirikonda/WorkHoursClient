@@ -1,8 +1,11 @@
-<!-- <form [formGroup]="loginForm" class="container mt-5"> 
-    <div class="mb-3 col-md-3">
-      <label for="username" class="form-label">GIN No:</label>
-      <input id="username" formControlName="ginNo" class="form-control">
-    </div>
+<div class="container center-form">
+  <div class="form-container">
+    <div style=" text-align: center;"> <h5>Login</h5></div>
+    <form [formGroup]="loginForm" class="mt-5">
+      <div class="mb-3">
+        <label for="ginno" class="form-label">GIN No</label>
+        <input id="ginno" type="number" formControlName="ginno" class="form-control" placeholder="GIN No">
+      </div>
     <div class="mb-3 col-md-3">
       <label for="password" class="form-label">Password:</label>
       <input id="password" type="password" formControlName="password" class="form-control">
