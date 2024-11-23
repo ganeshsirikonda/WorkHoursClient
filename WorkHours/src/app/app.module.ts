@@ -7,12 +7,16 @@ import { LoggingComponent } from './logging/logging.component';
 //below are imported
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoggingComponent
+    LoggingComponent,
+    HomeComponent
+    
   ],
   imports: [
     BrowserModule,

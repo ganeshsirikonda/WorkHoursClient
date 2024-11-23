@@ -1,4 +1,4 @@
 export class EmployeeLog {
-    public ginNo:number | undefined
+    public ginno:string | undefined
     public password:string |undefined
 }

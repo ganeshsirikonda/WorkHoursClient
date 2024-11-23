@@ -3,30 +3,29 @@
     <div style=" text-align: center;"> <h5>Login</h5></div>
     <form [formGroup]="loginForm" class="mt-5">
       <div class="mb-3">
+
+
+
         <label for="ginno" class="form-label">GIN No</label>
-        <input id="ginno" type="number" formControlName="ginno" class="form-control" placeholder="GIN No">
+        <input autofocus id="ginno" type="text" formControlName="ginno" min="0" (input)="onIdInput($event)" class="form-control focus-blue" placeholder="GIN No" (keydown.enter)="focusNext($event,pass)">
+        <small *ngIf="this.loginForm.get('ginno')?.errors?.['required'] && this.loginForm.get('ginno')?.touched" class="text-danger"> Gin No is required</small>
+
+
+
       </div>
-    <div class="mb-3 col-md-3">
-      <label for="password" class="form-label">Password:</label>
-      <input id="password" type="password" formControlName="password" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary" (click)="submit(this.loginForm)">Login</button>
-  </form>
-   -->
 
 
-<form [formGroup]="loginForm" class="container mt-5"> 
-  <div class="mb-3 col-md-3">
-    <label for="username" class="form-label">GIN No:</label>
-    <input id="username" formControlName="ginNo" class="form-control">
-  </div>
-  <div class="mb-3 col-md-3">
-    <label for="password" class="form-label">Password:</label>
-    <input id="password" type="password" formControlName="password" class="form-control">
-  </div>
-  <button type="button" class="btn btn-primary" (click)="submit()">Login</button>
 
-  <div *ngIf="message" class="mt-3">
-    <p>{{ message }}</p>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input #pass id="password" type="password" formControlName="password" class="form-control focus-blue" placeholder="Password" (keydown.enter)="focusNext($event,btn)"> 
+        <small *ngIf="this.loginForm.get('password')?.errors?.['required'] && this.loginForm.get('password')?.touched" class="text-danger"> Password is required</small>
+        <!-- <small *ngIf="loginError && !this.loginForm.get('gino')?.touched && !this.loginForm.get('password')?.touched" class="text-danger mt-5">Invalid Credentials</small> -->
+        <small *ngIf="loginError"  class="text-danger mt-5">Invalid Credentials</small>
+      </div>
+      <div  style="text-align: right;">
+        <button #btn type="button" class="btn  btn-primary btn-block" (click)="submit()">Login</button>
+      </div>
+    </form>
   </div>
-</form>
+

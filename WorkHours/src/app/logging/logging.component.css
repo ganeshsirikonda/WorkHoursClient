@@ -1,0 +1,42 @@
+
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  
+  
+  .form-label {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .form-control {
+    margin-bottom: 0.5rem;
+  }
+  
+
+  .form-container {
+    width: 100%;
+   
+    max-width: 350px;
+    border: 2px solid #4054b4; 
+    border-top-width: 5px;
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow:1cqh;
+
+    border: 0.5px solid;
+   
+    box-shadow: 5px 10px #ecebeb;
+  }
+
+  .focus-blue:focus {
+    outline: none; 
+    border: 2px solid rgb(6, 6, 184); 
+    box-shadow: none; 
+  }
+  
