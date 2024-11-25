@@ -1,2 +1,49 @@
-<p>home works!</p>
-<button (click)="getData()" class="btn btn-sm btn-primary">get</button>
+<div class="container mt-4">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <!-- <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="product-select">Select Product:</label>
+        </div>
+        <div class="col-md-4">
+          <select id="product-select" formControlName="selectedProduct" class="form-control">
+            <option *ngFor="let item of Products" [value]="item.productname">
+              {{ item.productname }}
+            </option>
+          </select>
+        </div>
+      </div> -->
+  
+      <div class="row">
+        <div *ngIf="ginnoData">
+          <h1>Welcome, {{ ginnoData }}</h1>
+        </div>
+        <!-- Rest of your template -->
+        
+       
+        <div class="col-md-6">
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Product Name</th>
+                <th>Work Hours</th>
+              </tr>
+            </thead>
+            <tbody formArrayName="products">
+              <tr *ngFor="let product of products.controls; let i = index" [formGroupName]="i">
+                <td>{{ product.value.productname }}</td>
+                <td><input type="text" formControlName="producttimehours" class="form-control focus-blue" (keydown.enter)="focusNextWorkHours(i)"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-3 offset-md-4 text-right">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+    
+  </div>
+  

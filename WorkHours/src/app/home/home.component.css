@@ -1,0 +1,6 @@
+
+.focus-blue:focus {
+    outline: none; 
+    border: 2px solid rgb(6, 6, 184); 
+    box-shadow: none; 
+  }

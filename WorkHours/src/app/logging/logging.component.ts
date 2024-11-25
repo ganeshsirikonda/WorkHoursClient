@@ -10,9 +10,11 @@ import { Router } from '@angular/router';
 })
 
 export class LoggingComponent implements OnInit {
-  
+ 
+
   loginForm: FormGroup;
   loginError:boolean|undefined;
+  ginno: string | null = null;
   
   constructor(private fb: FormBuilder, private employeeLogService: EmployeeLogService,private rout:Router) {
     this.loginForm = this.fb.group({
@@ -53,6 +55,7 @@ export class LoggingComponent implements OnInit {
         console.log("Response from server:", response);
         
           this.loginError = false;
+          this.ginno = this.loginForm.get('ginno')?.value;
           this.rout.navigateByUrl('/home');
         
       },

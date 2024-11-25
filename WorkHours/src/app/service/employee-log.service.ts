@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
+
+
 export class EmployeeLogService {
   // private apiUrl = 'http://localhost:8089/EmployeeLogValidate';
   private apiUrl = 'http://localhost:8089'
@@ -18,8 +20,14 @@ export class EmployeeLogService {
 
 
 
-  getProducts(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/getProducts`);
+  // getProducts(): Observable<any> {
+  //   return this.http.get<any>(`${this.apiUrl}/getProducts`);
+  getProducts(): Observable<Array<{ productname: string }>> {
+     return this.http.get<Array<{ productname: string }>>(`${this.apiUrl}/getProducts`,
+       { observe: 'body' }); }
   }
   
-}
+
+       
+
+  
